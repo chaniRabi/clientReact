@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {connect} from "react-redux";
 import {registerUser} from "../utils/usersAPI";
-import {GetAllProductInCart,AddProductToCart,RemoveProduct } from "../utils/productInCart";
+import {AddProductToCart,RemoveProduct, GetProductsInCartByUserId } from "../utils/productInCart";
 
 const Cart = () =>{
   const[products, setProducts] = useState([]);
@@ -9,7 +9,9 @@ const Cart = () =>{
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const data = await GetAllProductInCart();
+      // TODO: לשלוח בקריאת שרת את המזהה של היוזר המחובר כרגע לאתר
+      // את שולפת את היוזר המחובר מהרידקס - בסלייס של היוזר ולוקחת את המזהה משם ואותו שולחת בקריאת שרת
+      const data = await GetProductsInCartByUserId(1011);
       setProducts(data);
     };
 

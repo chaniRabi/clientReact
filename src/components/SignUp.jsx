@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { AddUser } from '../utils/usersAPI';
+import { Button, TextField, Grid, Typography, Container } from '@mui/material';
+
 
 const RegistrationForm = () => {
     //אתחול האובייקט באמצעות useState עם השדות הרלוונטיות להרשמה
@@ -35,13 +37,54 @@ const RegistrationForm = () => {
     };
 
     return (
+        // <form onSubmit={handleSubmit}>
+        //     <input type="text" name="name" value={formData.name} onChange={handleInputChange} placeholder="Username" />
+        //     <input type="email" name="email" value={formData.email} onChange={handleInputChange} placeholder="Email" />
+        //     <input type="password" name="password" value={formData.password} onChange={handleInputChange} placeholder="Password" />
+        //     {/* Add more input fields as needed */}
+        //     <button type="submit">Submit</button>
+        // </form>
+        <Container maxWidth="xs">
+        <Typography variant="h4" align="center" gutterBottom>
+            רישום משתמש חדש
+        </Typography>
         <form onSubmit={handleSubmit}>
-            <input type="text" name="name" value={formData.name} onChange={handleInputChange} placeholder="Username" />
-            <input type="email" name="email" value={formData.email} onChange={handleInputChange} placeholder="Email" />
-            <input type="password" name="password" value={formData.password} onChange={handleInputChange} placeholder="Password" />
-            {/* Add more input fields as needed */}
-            <button type="submit">Submit</button>
+            <Grid container spacing={2}>
+                <Grid item xs={12}>
+                    <TextField
+                        label="שם מתשמש"
+                        name="username"
+                        fullWidth
+                        value={formData.username}
+                        onChange={handleInputChange}
+                    />
+                </Grid>
+                <Grid item xs={12}>
+                    <TextField
+                        label="כתובת מייל"
+                        name="email"
+                        type="email"
+                        fullWidth
+                        value={formData.email}
+                        onChange={handleInputChange}
+                    />
+                </Grid>
+                <Grid item xs={12}>
+                    <TextField
+                        label="סיסמה"
+                        name="password"
+                        type="password"
+                        fullWidth
+                        value={formData.password}
+                        onChange={handleInputChange}
+                    />
+                </Grid>
+            </Grid>
+            <Button type="submit" variant="contained" color="primary" fullWidth>
+                הרשמה
+            </Button>
         </form>
+    </Container> 
     );
 };
 

@@ -8,39 +8,48 @@ import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import Cart from './components/cart'
 import Header from './components/header';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container } from 'react-bootstrap';
 import Products from './components/products';
-import productSlice from './features/productSlice';
+import productsSlice from './features/productsSlice';
 import prductInCartSlice from './features/productInCartSlice';
+import { Container, Typography, Box, Stack, Grid, Button } from "@mui/material";
+import { ThemeProvider } from '@mui/material/styles';
+import theme from "./styles/themeStyle";
+import { useEffect } from "react";
 
 const myStore = configureStore({
   reducer:{
     user: userSlice,
-    product: productSlice,
+    product: productsSlice,
     cart: prductInCartSlice
 
   }
 })
 
 function App() {
+  useEffect(() => {
+    document.title = "שיינ'ס סטוק";
+  }, []);
 
   return (
     <Provider store={myStore}>
-      <Container>
+       <ThemeProvider theme={theme}>
+      <Container maxWidth="xl" sx={{background:'#fff'}}> 
       <Router>
        {/* <Header /> */}
         <Routes>
          <Route path="/signIn" element={<SignIn />} />
          <Route path="/signUp" element={<SignUp />} />
          <Route path="/" element={<HomePage />}>
-         <Route path="/cart" element={<Cart />} />
-         <Route path="/products" element={<Products/>} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/products" element={<Products/>} />
+            {/* <Route path="/Registration" element={<RegistrationForm/>} /> */}
+
           <Route />
         </Route>
       </Routes>
      </Router> 
-     </Container>
+      </Container>
+     </ThemeProvider> 
     </Provider>
   );
 }

@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { GetProduct } from '../utils/product.js';
-import {setLogedProduct} from './productSlice.js'
+import {setLogedProduct} from './productsSlice.js'
 
 //להגדיר לסלייס את הסטייט ההתחלתי שלו
 // יצירה של משתנה סטייט עבור החלק הזה של הרדיוסר
