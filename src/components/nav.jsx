@@ -21,7 +21,7 @@ import {
 const Nav = () => {
   return (
     <AppbarContainer>
-    <AppbarHeader variant="h4">Shins Stock</AppbarHeader>
+    <AppbarHeader variant="h6">Shin's Stock</AppbarHeader>
     <MyList type='row'>
       <ListItemText primary="דף הבית" />
       <ListItemText primary="מחלקות" />

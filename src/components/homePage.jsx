@@ -11,6 +11,7 @@ import Nav from './nav';
 import { Button, TextField, Grid, Typography, Container } from '@mui/material';
 import { GetProduct } from '../utils/product';
 
+
 function HomePage() {
     const dispatch = useDispatch();
     // שימוש במשתנה ששמרנו ברידקס - כשהיוזר מתחבר לאתר

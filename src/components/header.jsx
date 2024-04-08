@@ -7,6 +7,8 @@ import theme from "../styles/themeStyle";
 import { AppBar, Toolbar, Typography, Button, useTheme } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import logo from "../IMG/logo1.png";
+// import AppbarHeader from "../styles/headerStyle";
 
 
 const Header = () => {
@@ -21,11 +23,14 @@ const Header = () => {
       <Toolbar>
         <Typography variant='h6' style={{ flexGrow: 1 }}>
           <div>
-            <img style={{ width: 120, height: 40, marginTop: 10 }}
+            <img style={{ width: 100, height: 50, marginTop: 1 }}
               className='image'
-              src="shine-stock/public/IMG/ogo.png" />
+              src={logo} alt="logo" />
           </div>
+              {/* <AppbarHeader variant="h4">Shin's Stock</AppbarHeader> */}
+
         </Typography>
+        
         {/* <Button color='inherit' component={Link} to="/">Home</Button> */}
         <Button color='inherit' component={Link} to="/signIn">התחברות</Button>
         /
