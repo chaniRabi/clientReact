@@ -4,12 +4,15 @@ import { Link, Outlet } from 'react-router-dom';
 //import Product from './products';
 import Header from './header';
 import Nav from './nav';
+import Footer from './footer';
 //import Navigation from './navigation';
 //import { GetProduct } from '../utils/product.js';
 //import { setProducts } from '../features/productsSlice.js'
 // import { addToCart,removFromCart } from '../features/cartSlice.js';}
 import { Button, TextField, Grid, Typography, Container } from '@mui/material';
 import { GetProduct } from '../utils/product';
+import { AppbarContainer, AppbarHeader } from '../styles/headerStyle';
+import Banner from './Banner'
 
 
 function HomePage() {
@@ -44,13 +47,23 @@ function HomePage() {
     return (
         <div className='home-page'>
             <Header />
+            {/* <Banner/> */}
             <Container maxWidth="sm">
-                <Typography variant='h4' align='center' style={{ marginTop: 50 }}>
-                    ברוכים הבאים לשיינ'ס סטוק
+                <AppbarContainer>
+                    <AppbarHeader>Welcom to Shine's Stock</AppbarHeader>
+                </AppbarContainer>
+                {/* <Typography variant='h3' align='center' style={{ marginTop: 20 }}>
+                    שיינ'ס סטוק - הכל לגן ולבית
+                    <br></br>
+                    <br></br>
+                    חנות סטוקים גדולה עם מחלקות נרחבות לחומרי יצירה וכלי כתיבה
+                    <br></br>
+                    <br></br>  הנחות מיוחדות לגננות ומוסדות
+                    </Typography> */}
                     {/* הצגה של השם שמחובר עכשיו לאתר - מהמשתנה שקיבלנו מהרידקס */}
                     {logedUser != null ? <h3>hello {logedUser.name}</h3> : null}
                     <div >
-                        <Nav />
+                        {/* <Nav /> */}
                         {/* <navigation/> */}
                     </div>
                     {/* <div>
@@ -63,8 +76,8 @@ function HomePage() {
                         {/* הכוונה שרוצים להשאיר את כל הלינקים כתובים למעלה כמו ניווט ואז לשתול את התגית שמתאימה לניווט במקום שכתוב את התגית הזאת: */}
                         <Outlet></Outlet>
                     </div>
-                </Typography>
             </Container>
+            <Footer/>
         </div>
     );
 

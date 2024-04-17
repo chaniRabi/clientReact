@@ -23,18 +23,61 @@ const RegistrationForm = () => {
         });
     };
 
-    //פונקציה המטפלת בהגשת הטופס וניגשת לכל נתוני רישום המשתמש המאוחסנים באובייקט
+    // //פונקציה המטפלת בהגשת הטופס וניגשת לכל נתוני רישום המשתמש המאוחסנים באובייקט
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //         await AddUser(formData).then(res => {
+    //             console.log(res);
+    //             if(res.status === 200){
+    //                 alert("נרשמת בהצלחה:)");
+    //             }
+    //         }).catch((error) =>{
+    //         setError('ההרשמה נכשלה, נסה שנית')
+    //     })
+    // };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-            await AddUser(formData).then(res => {
+        // בדיקה שכל השדות מולאו
+        if (!formData.username || !formData.email || !formData.password) {
+            setError('חובה למלא את כל השדות');
+            return;
+        }
+    
+        // בדיקה שהאימייל חוקי
+        const emailRegex = /^\S+@\S+\.\S+$/;
+        if (!emailRegex.test(formData.email)) {
+            setError('כתובת האימייל אינה חוקית');
+            return;
+        }
+    
+       // בדיקה שאורך הסיסמה גדול מ-6 תווים
+        if (formData.password.length < 6) {
+        setError('הסיסמה חייבת להכיל לפחות 6 תווים');
+        return;        
+        }
+
+        // בדיקה שהסיסמה מכילה לפחות אות אחת באותיות גדולות ולפחות אות אחת באותיות קטנות
+        const uppercaseRegex = /[A-Z]/;
+        const lowercaseRegex = /[a-z]/;
+        if (!uppercaseRegex.test(formData.password) || !lowercaseRegex.test(formData.password)) {
+        setError('הסיסמה חייבת להכיל לפחות אות אחת באותיות גדולות ולפחות אות אחת באותיות קטנות');
+        return;
+        }
+
+        // אם הבדיקות עברו בהצלחה, שלח את הנתונים לשרת
+        await AddUser(formData)
+            .then(res => {
                 console.log(res);
-                if(res.status === 200){
+                if (res.status === 200) {
                     alert("נרשמת בהצלחה:)");
                 }
-            }).catch((error) =>{
-            setError('ההרשמה נכשלה, נסה שנית')
-        })
+            })
+            .catch((error) => {
+                setError('ההרשמה נכשלה, נסה שנית');
+            });
     };
+    
 
     return (
         // <form onSubmit={handleSubmit}>

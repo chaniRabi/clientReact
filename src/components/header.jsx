@@ -8,6 +8,7 @@ import { AppBar, Toolbar, Typography, Button, useTheme } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import logo from "../IMG/logo1.png";
+import Nav from './nav';
 // import AppbarHeader from "../styles/headerStyle";
 
 
@@ -27,9 +28,15 @@ const Header = () => {
               className='image'
               src={logo} alt="logo" />
           </div>
+          {/* <div>
+            <img style={{ width: 100, height: 50, marginTop: 1 }}
+              className='image' src="./eyeMasck.jpg"/>
+          </div> */}
               {/* <AppbarHeader variant="h4">Shin's Stock</AppbarHeader> */}
 
         </Typography>
+
+        <Nav />
         
         {/* <Button color='inherit' component={Link} to="/">Home</Button> */}
         <Button color='inherit' component={Link} to="/signIn">התחברות</Button>

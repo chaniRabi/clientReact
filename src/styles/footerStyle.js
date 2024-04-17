@@ -3,12 +3,14 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { Colors } from "../theme";
+import { Colors } from "../styles/themeStyle";
 
 export const FooterTitle = styled(Typography)(() => ({
   textTransform: "uppercase",
-  marginBottom: "1em",
+  marginBottom: "1em"
 }));
+
+
 
 export const SubscribeTf = styled(TextField)(() => ({
   ".MuiInputLabel-root": {

@@ -6,7 +6,6 @@ import { setLoggedUser } from "../features/userSlice";
 import { Button, TextField, Grid, Typography, Container } from '@mui/material';
 
 
-
 const SignIn=()=>{
 //יצירת משתנה סטייט -משנה סטייט יוצרים
 //שכל שינוי יתעדכן מיד בתצוגה
@@ -21,7 +20,10 @@ const handleClickLogin=()=>{
     if(email == "" || password == ""){
         setError("חובה למלא את כל השדות");
     }
-    //לקרוא לפונרקציה מהutils שעושה פנית API
+    else if (!/\S+@\S+\.\S+/.test(email)) {
+        setError("כתובת האימייל אינה חוקית");
+    }
+    //לקרוא לפונקציה מהutils שעושה פנית API
     else{
         const user={
             Email:email,
@@ -56,13 +58,12 @@ const handleClickLogin=()=>{
     setPassword(value);
 }
 
-
 return(
-    <Container maxWidth="xs">
+    <Container maxWidth="xs" style={{marginTop:'250px'}}>
             <Typography variant="h4" align="center" gutterBottom>
                 התחברות משתמש קיים
             </Typography>
-            <form onSubmit={SignIn}>
+            {/* <form> */}
                 <Grid container spacing={2}>
                     <Grid item xs={12}>
                         <TextField
@@ -71,7 +72,7 @@ return(
                             type="email"
                             fullWidth
                             //value={formData.email}
-                            onChange={handleClickLogin}
+                            onChange={handleChangeEmail}
                         />
                     </Grid>
                     <Grid item xs={12}>
@@ -81,14 +82,14 @@ return(
                             type="password"
                             fullWidth
                             //value={formData.password}
-                            onChange={handleClickLogin}
+                            onChange={handleChangePassword}
                         />
                     </Grid>
                 </Grid>
-                <Button type="submit" variant="contained" color="primary" fullWidth>
+                <Button type="button" variant="contained" color="primary" fullWidth onClick={handleClickLogin}>
                     התחברות
                 </Button>
-            </form>
+            {/* </form> */}
         </Container>
     // {/* <label id="email">אימייל: </label>
     // <input type="text" placeholder="enter email" value={email} onChange={handleChangeEmail} />
