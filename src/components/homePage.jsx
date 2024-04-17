@@ -12,7 +12,8 @@ import Footer from './footer';
 import { Button, TextField, Grid, Typography, Container } from '@mui/material';
 import { GetProduct } from '../utils/product';
 import { AppbarContainer, AppbarHeader } from '../styles/headerStyle';
-import Banner from './Banner'
+import Banner from './Banner';
+import Promotions from './Promotions'
 
 
 function HomePage() {
@@ -52,6 +53,7 @@ function HomePage() {
                 <AppbarContainer>
                     <AppbarHeader>Welcom to Shine's Stock</AppbarHeader>
                 </AppbarContainer>
+                <Promotions/>
                 {/* <Typography variant='h3' align='center' style={{ marginTop: 20 }}>
                     שיינ'ס סטוק - הכל לגן ולבית
                     <br></br>
