@@ -1,8 +1,11 @@
 import React, {useEffect, useState} from 'react';//שימוש בהוק אפקט יביא נתוני מוצר כאשר נטען הרכיב
 import { GetProduct } from '../utils/product';//באמצעות הפונקציה יביא רשימה של מוצרים
-import Product from './Product';
+import Product from './singelProduct';
 import { setProducts } from '../features/productsSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTheme } from '@emotion/react';
+import { Grid, useMediaQuery } from '@mui/material';
+import { Container } from '@mui/system';
 
 const Products = () =>{
     // const [products, setProducts] = useState([]);
@@ -29,13 +32,34 @@ const Products = () =>{
     if (products.length === 0){
         return <div>טוען מוצרים</div>; 
     }
+
+    const theme = useTheme();
+    const matches =
+        useMediaQuery(theme.breakpoints.down('md'));
+
+    const renderProducts = products.map(product => (
+       <Grid item key={product.id} display="flex" flexDirection={"column"}
+       alignItems="center">
+        
+       </Grid>
+    ))
      
     return(
-        <div className='products'>
-            {products.map((product)=>(
-              <Product key={product.id} name={product.name} price={product.prise} description={product.description}/>
-            ))}
-        </div>
+        <Container>
+            <Grid
+            Container
+            justifyContent={"center"}
+            sx={{margin: '20px 4px 10px 4px'}}
+            >
+                {renderProducts}
+            </Grid>
+        </Container>
+
+        // <div className='products'>
+        //     {products.map((product)=>(
+        //       <Product key={product.id} name={product.name} price={product.prise} description={product.description}/>
+        //     ))}
+        // </div>
     );
 };
 

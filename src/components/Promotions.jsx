@@ -5,8 +5,9 @@ import { MessageText, PromotionsContainer } from "../styles/promotiom";
 import { Colors } from "../styles/promotiom";
 
 const messages = [
-  "10% הנחה על ההזמנה הראשונה!",
-  " שיינ'ס סטוק הקניה הזולה ביותר",
+    "שיינ'ס סטוק - הכל לבית ולגן",
+  "!הנחה 10% על ההזמנה הראשונה  ",
+  " שיינ'ס סטוק - הקניה הזולה ביותר",
   "הנחה מיוחדת למוסדות וגננות ",
 ];
 export default function Promotions() {
@@ -42,7 +43,7 @@ export default function Promotions() {
         container={containerRef.current}
         timeout={{
           enter: 500,
-          exit: 100,
+          exit: 200,
         }}
       >
         <Box display="flex" justifyContent="center" alignItems="center">
