@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useTheme } from '@emotion/react';
 import { Grid, useMediaQuery } from '@mui/material';
 import { Container } from '@mui/system';
+import Box from '@mui/material/Box';
 
 const Products = () =>{
     // const [products, setProducts] = useState([]);
@@ -33,33 +34,47 @@ const Products = () =>{
         return <div>טוען מוצרים</div>; 
     }
 
-    const theme = useTheme();
-    const matches =
-        useMediaQuery(theme.breakpoints.down('md'));
+    // const theme = useTheme();
+    // const matches =
+    //     useMediaQuery(theme.breakpoints.down('md'));
 
+    //מחזיר את רשימת המוצרים
     const renderProducts = products.map(product => (
        <Grid item key={product.id} display="flex" flexDirection={"column"}
        alignItems="center">
-        
        </Grid>
     ))
      
     return(
-        <Container>
-            <Grid
-            Container
-            justifyContent={"center"}
-            sx={{margin: '20px 4px 10px 4px'}}
-            >
-                {renderProducts}
-            </Grid>
-        </Container>
+        <>
+        {/* // <Container>
+        //     <Grid
+        //     Container
+        //     justifyContent={"center"}
+        //     sx={{margin: '20px 4px 10px 4px'}}
+        //     >
+        //         {renderProducts}
+        //     </Grid>
+        // </Container> */}
 
-        // <div className='products'>
+        <Box sx={{ flexGrow: 1 }}>
+        <Grid
+            container
+            spacing={2}
+            // sx={{margin: '20px 4px 10px 4px'}}
+            >
+                 {products.map((product)=>(
+              <Product key={product.id} product={product}/>
+            ))}
+            </Grid>
+        </Box>
+
+        {/* // <div className='products'>
         //     {products.map((product)=>(
-        //       <Product key={product.id} name={product.name} price={product.prise} description={product.description}/>
+        //       <Product key={product.id} product={product}/>
         //     ))}
-        // </div>
+        // </div> */}
+        </>
     );
 };
 

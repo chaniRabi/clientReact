@@ -15,6 +15,7 @@ import { Container, Typography, Box, Stack, Grid, Button } from "@mui/material";
 import { ThemeProvider } from '@mui/material/styles';
 import theme from "./styles/themeStyle";
 import { useEffect } from "react";
+import Categories from './components/categories';
 
 const myStore = configureStore({
   reducer:{
@@ -42,8 +43,8 @@ function App() {
          <Route path="/" element={<HomePage />}>
             <Route path="/cart" element={<Cart />} />
             <Route path="/products" element={<Products/>} />
+            {/* <Route path='/categories' element={<Categories/>}/> */}
             {/* <Route path="/Registration" element={<RegistrationForm/>} /> */}
-
           <Route />
         </Route>
       </Routes>

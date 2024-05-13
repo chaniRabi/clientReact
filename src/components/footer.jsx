@@ -33,13 +33,12 @@ export default function Footer() {
           <FooterTitle variant="body1">  
             כתובת: מאה שערים 9, ירושלים
             <br></br>
+            <br></br>טלפון: 073-736-7844
             <br></br>
-טלפון: 073-736-7844
-<br></br>
             <br></br>
             שעות פעילות: 
-9:00-21:00
-</FooterTitle>
+            9:00-21:00
+      </FooterTitle>
           <Typography variant="caption2">
           </Typography>
           <Box
@@ -48,9 +47,9 @@ export default function Footer() {
               color: Colors.dove_gray,
             }}
           >
-            <FacebookIcon sx={{ mr: 1 }} />
+            {/* <FacebookIcon sx={{ mr: 1 }} />
             <TwitterIcon sx={{ mr: 1 }} />
-            <InstagramIcon />
+            <InstagramIcon /> */}
           </Box>
         </Grid>
         <Grid item md={6} lg={2}>
@@ -111,7 +110,7 @@ export default function Footer() {
               sx={{ mt: 4, mb: 4 }}
               variant="contained"
             >
-              הצטרפות
+            {/* הצטרפות */}
             </Button>
           </Stack>
         </Grid>

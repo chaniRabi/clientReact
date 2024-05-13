@@ -15,10 +15,12 @@ export const AppbarContainer = styled(Box)(() => ({
 
 export const AppbarHeader = styled(Typography)(() => ({
   padding: "4px",
-  flexGrow: 1,
+  //flexGrow: 1,
   fontSize: "4em",
   fontFamily: '"Montez", "cursive"',
   color: Colors.secondary,
+  // justifyContent: 'center',
+  // alignItems: 'center'
   // "&:hover": {
   //   animation: `${textPopUpTop} 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both`,
   // },

@@ -49,11 +49,11 @@ function HomePage() {
         <div className='home-page'>
             <Header />
             {/* <Banner/> */}
-            <Container maxWidth="sm">
+            <Container maxWidth="lg">
                 <AppbarContainer>
                     <AppbarHeader>Welcom to Shine's Stock</AppbarHeader>
                 </AppbarContainer>
-               
+                
                 {/* <Typography variant='h3' align='center' style={{ marginTop: 20 }}>
                     שיינ'ס סטוק - הכל לגן ולבית
                     <br></br>
@@ -70,7 +70,7 @@ function HomePage() {
                     </div>
                     {/* <div>
                       {products.map((product) => (
-                         <Product key={product.id} name={product.name} price={product.prise} />
+                         <Product key={product.id} name={product.name} price={product.price} />
                      ))}
                     </div> */}
                     <div>

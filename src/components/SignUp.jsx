@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AddUser } from '../utils/usersAPI';
 import { Button, TextField, Grid, Typography, Container } from '@mui/material';
-
+import { useNavigate } from "react-router-dom";
 
 const RegistrationForm = () => {
     //אתחול האובייקט באמצעות useState עם השדות הרלוונטיות להרשמה
@@ -13,6 +13,7 @@ const RegistrationForm = () => {
     });
     //במקרה של שגיאה
     const [error, setError] = useState('');
+    const navigate = useNavigate();//מופע של הפונקציה עם יכולת הניווט
 
     //פונקציה שתעדכן את השדה המתאים באובייקט כאשר הערכים משתנים
     const handleInputChange = (e) => {
@@ -39,7 +40,7 @@ const RegistrationForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         // בדיקה שכל השדות מולאו
-        if (!formData.username || !formData.email || !formData.password) {
+        if (!formData.name || !formData.email || !formData.password) {
             setError('חובה למלא את כל השדות');
             return;
         }
@@ -71,6 +72,7 @@ const RegistrationForm = () => {
                 console.log(res);
                 if (res.status === 200) {
                     alert("נרשמת בהצלחה:)");
+                    navigate("/signIn");
                 }
             })
             .catch((error) => {
@@ -81,13 +83,13 @@ const RegistrationForm = () => {
 
     return (
         // <form onSubmit={handleSubmit}>
-        //     <input type="text" name="name" value={formData.name} onChange={handleInputChange} placeholder="Username" />
+        //     <input type="text" name="name" value={formData.name} onChange={handleInputChange} placeholder="name" />
         //     <input type="email" name="email" value={formData.email} onChange={handleInputChange} placeholder="Email" />
         //     <input type="password" name="password" value={formData.password} onChange={handleInputChange} placeholder="Password" />
         //     {/* Add more input fields as needed */}
         //     <button type="submit">Submit</button>
         // </form>
-        <Container maxWidth="xs">
+        <Container maxWidth="xs"style={{marginTop:'150px'}}>
         <Typography variant="h4" align="center" gutterBottom>
             רישום משתמש חדש
         </Typography>
@@ -96,9 +98,9 @@ const RegistrationForm = () => {
                 <Grid item xs={12}>
                     <TextField
                         label="שם מתשמש"
-                        name="username"
+                        name="name"
                         fullWidth
-                        value={formData.username}
+                        value={formData.name}
                         onChange={handleInputChange}
                     />
                 </Grid>
@@ -122,6 +124,7 @@ const RegistrationForm = () => {
                         onChange={handleInputChange}
                     />
                 </Grid>
+                {error && <span>{error}</span>}
             </Grid>
             <Button type="submit" variant="contained" color="primary" fullWidth>
                 הרשמה

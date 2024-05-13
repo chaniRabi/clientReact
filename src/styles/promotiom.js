@@ -19,6 +19,6 @@ export const MessageText = styled(Typography)(({ theme }) => ({
   [theme.breakpoints.up("md")]: {
     fontSize: "3rem",
   },
-  color: Colors.black,
+  color: Colors.Hex,
   fontSize: "1.5rem",
 }));

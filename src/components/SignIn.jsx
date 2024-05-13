@@ -59,7 +59,7 @@ const handleClickLogin=()=>{
 }
 
 return(
-    <Container maxWidth="xs" style={{marginTop:'250px'}}>
+    <Container maxWidth="xs" style={{marginTop:'150px'}}>
             <Typography variant="h4" align="center" gutterBottom>
                 התחברות משתמש קיים
             </Typography>
