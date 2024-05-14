@@ -53,7 +53,7 @@ function HomePage() {
                 <AppbarContainer>
                     <AppbarHeader>Welcom to Shine's Stock</AppbarHeader>
                 </AppbarContainer>
-                
+                                
                 {/* <Typography variant='h3' align='center' style={{ marginTop: 20 }}>
                     שיינ'ס סטוק - הכל לגן ולבית
                     <br></br>
@@ -79,6 +79,7 @@ function HomePage() {
                         <Outlet></Outlet>
                     </div>
             </Container>
+            <Banner/>
             <Promotions/>
             <Footer/>
         </div>

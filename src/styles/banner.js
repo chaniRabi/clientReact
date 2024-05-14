@@ -13,7 +13,7 @@ export const BannerContainer = styled(Box)(({ matches, theme }) => ({
     flexDirection: "column",
     alignItems: "center",
   },
-  // backgroundImage: `url(/images/banner/banner.png)`,
+  // backgroundImage: `url(/.\public\IMG\shineStockLable.jpg.png)`,
   // backgroundRepeat: "no-repeat",
   // backgroundPosition: "center",
 }));

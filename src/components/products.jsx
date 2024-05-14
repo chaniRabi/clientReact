@@ -4,9 +4,8 @@ import Product from './singelProduct';
 import { setProducts } from '../features/productsSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTheme } from '@emotion/react';
-import { Grid, useMediaQuery } from '@mui/material';
-import { Container } from '@mui/system';
-import Box from '@mui/material/Box';
+import { Container, Typography, Box, Stack, Grid, Button } from "@mui/material";
+
 
 const Products = () =>{
     // const [products, setProducts] = useState([]);
@@ -31,7 +30,12 @@ const Products = () =>{
     //טיפול בתרחיש שבו המוצרים עדיין נשלפים מה-API
     //מאפשר להציג הודעת טעינה לפני שליפת המוצרים ועיבודם במסך
     if (products.length === 0){
-        return <div>טוען מוצרים</div>; 
+        // return <div>טוען מוצרים</div>; 
+        return(
+            <Box display="flex" justifyContent="center" sx={{ p: 4 }}>
+            <Typography variant="h4">טוען מוצרים</Typography>
+            </Box>
+        );
     }
 
     // const theme = useTheme();
@@ -56,7 +60,9 @@ const Products = () =>{
         //         {renderProducts}
         //     </Grid>
         // </Container> */}
-
+        <Box display="flex" justifyContent="center" sx={{ p: 7 }}>
+                <Typography variant="h4">המוצרים שלנו:</Typography>
+              </Box>
         <Box sx={{ flexGrow: 1 }}>
         <Grid
             container

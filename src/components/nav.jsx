@@ -19,7 +19,7 @@ import {
 } from "../styles/headerStyle";
 
 const pages = [{name:"דף הבית", url:'/'}, {name:"מחלקות" , url:'/categories'}, {name:"מוצרים", url:'/products'},
- {name:"אודות", url:'/about'}, {name:"צור קשר", url:'/contact'}];
+  {name:"צור קשר", url:'/contact'}];
 
 const Nav = () => {
   const navigate = useNavigate();

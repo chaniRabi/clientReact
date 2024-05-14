@@ -6,10 +6,12 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Grid } from '@mui/material';
+// import { Product, ProductImage } from '../styles/product';
 
 const Product=({product, matches}) => {
   return (
     <>
+    {/* <ProductImage src={product.image} /> */}
     {/* <div className='product'>
       <div className='product-ditails'>
         <h2>{name}</h2>
